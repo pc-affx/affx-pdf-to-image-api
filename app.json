@@ -2,6 +2,6 @@
   "name": "PDF to Image API",
   "description": "A python based pdf to image API.",
   "repository": "https://github.com/formula21/pdf-to-image-api",
-  "logo": "https://me.anweshan.online/external/convert.png",
+  "logo": "https://me.anweshan.online/external/conversion-icon.jpg",
   "keywords": ["python", "flask", "pdf", "image"]
 }
