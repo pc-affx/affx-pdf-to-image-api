@@ -1,6 +1,5 @@
-import fitz
+import zipfile, tempfile, fitz
 from flask import Flask, request, make_response
-import zipfile, tempfile
 
 app = Flask(__name__)
 
