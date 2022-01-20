@@ -5,15 +5,17 @@
 
 ## Overview
 
-Due to the pandemic we have found ourselves sharing PDF's more than ever. However still some people face problem understanding the PDF file or opening the same on a compatible app. In all most applications, a person can view a page in the app itself, without installing a different application all together.   
+Due to the pandemic we have found ourselves sharing PDFs more than ever. However still some people face problem understanding the PDF file or opening the same on a compatible app. In all most applications, a person can view a page in the app itself, without installing a different application all together.   
 
-To enable the same, [@formula21](https://formula21.github.io) has bought you an API which accepts a PDF file only to convert it's page(s) to high quality image(s).
+To enable the same, [@formula21](https://formula21.github.io) has bought you an API which accepts a PDF file only to convert its page(s) to high quality image(s).
 
 Built in Python and deployed through Flask Server, the integrated experience is tailored to any user(s) experience.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/formula21/pdf-to-image-api/tree/main)
 
 ## App Documentation
+
+### The Routes
 
 `POST /upload`
 
@@ -31,7 +33,7 @@ Built in Python and deployed through Flask Server, the integrated experience is 
 
 >:memo: Note this parameter is conditionally mandatory.
 
-The `page` parameter is an integer, which accepts a range between 0 to one less than the last page number of the PDF. 
+The `page` parameter is an integer, which accepts a range between 0 and one less than the last page number of the PDF. 
 
 - If `0` is given to the `page` parameter, the image for the first page is rendered.
 
@@ -51,6 +53,20 @@ The `bundle` parameter is an integer which is actually a binary i.e. accepts eit
 > :bulb: **Tip:** Specifying `bundle` will always force the output to be a **ZIP file of images**, even if there is only 1 page.
 
 >:memo: Without specifying the `page` parameter, but specifying `bundle=0`, does not render any images.
+
+### The Response
+
+#### `200` Ok:
+
+In general the response from the API is an image, however if `bundle` is provided, we expect a ZIP file.
+
+#### `400` Bad Request:
+
+If the file is invalid, or the path is not defined by the API.
+
+#### `500` Internal Server Error.
+
+If there is some problem with the code.
 
 ## License
 The project comes with an open-source MIT License. If you have not received the same with your copy of the project here the license is as below:
