@@ -38,9 +38,6 @@ def upload():
         else:
             return 'Bundle Number should be 0 or 1', 400
 
-    # TODO: Add ?bundle=0 or ?bundle=1
-    # If we find page also, we will bundle up to that page (inclusive).
-
     msg = 'Some Internal Error Occurred', 500
     try:
         print("Document is being read!! Upload: Success")
