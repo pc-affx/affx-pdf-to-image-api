@@ -1,5 +1,5 @@
 import zipfile, tempfile, fitz
-from flask import Flask, request, make_response
+from flask import Flask, request, make_response, render_template
 
 app = Flask(__name__)
 
@@ -95,7 +95,7 @@ def upload():
 
 @app.route('/')
 def index():
-    return 'Hello!', 200
+    return "<h1>Hello! Welcome to PDF to Image API.</h1>", 200
 
 
 if __name__ == '__main__':
