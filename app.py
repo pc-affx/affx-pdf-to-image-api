@@ -4,6 +4,35 @@ from flask import Flask, request, make_response, render_template
 app = Flask(__name__)
 
 
+@app.route('/upload-url', methods=['GET', 'POST'])
+def upload_url():
+    page_number_arg, bundle_arg, url_arg = [0], False, None
+
+    if 'url' in request.args and len(request.args.get('url')) > 0:
+        # TODO: DOWNLOAD THE CONTENT THE URL.
+        pass
+    else:
+        return 'URL is expected', 400
+
+    if 'page' in request.args:
+        page_number_arg = request.args.get('page')
+        if not page_number_arg.isnumeric():
+            return 'Page Number should be numeric', 400
+        page_number_arg = [0, int(page_number_arg)]
+
+    if 'bundle' in request.args:
+        bundle_arg = request.args.get('bundle')
+        if bundle_arg.isnumeric() and (int(bundle_arg) == 1 or int(bundle_arg) == 0):
+            if int(bundle_arg) == 1:
+                # Right side: page number given to Last Page
+                page_number_arg = [max(page_number_arg)]
+            bundle_arg = True
+        else:
+            return 'Bundle Number should be 0 or 1', 400
+
+    msg = 'Some Internal Error Occurred', 500
+
+
 # noinspection PyBroadException
 @app.route('/upload', methods=['POST'])
 def upload():
