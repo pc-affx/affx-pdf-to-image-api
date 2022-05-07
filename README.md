@@ -17,7 +17,7 @@ Built in Python and deployed through Flask Server, the integrated experience is 
 
 ### The Routes
 
-`POST /upload`
+#### `POST /upload`
 
 `body`:
 - `file`: Accepts a PDF documents.
@@ -27,6 +27,7 @@ Built in Python and deployed through Flask Server, the integrated experience is 
     - The property is optional, and will by default is assumed `0`.
 - `bundle`: Accepts 0 or 1.
   - The property is optional, and will be ignored if not present.
+
 
 ### Explaining the parameters
 #### A. The `page` parameter
