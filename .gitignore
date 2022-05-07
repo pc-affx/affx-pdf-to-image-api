@@ -2,3 +2,4 @@ venv/
 .idea/
 __pycache__
 request_file.py
+.env
