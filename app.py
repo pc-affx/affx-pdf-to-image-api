@@ -1,4 +1,9 @@
-import cv2, fitz, numpy as np, os, tempfile, zipfile
+import cv2
+import fitz
+import os
+import tempfile
+import zipfile
+import numpy as np
 from dotenv import load_dotenv
 from flask import Flask, make_response, request
 
