@@ -134,6 +134,8 @@ def upload():
                     for page_number in range(page_number_arg[0], page_number_arg[1] + 1):
                         pdf_page = document.load_page(page_number)
                         pdf_page_pix = (pdf_page.get_pixmap()).tobytes(output='png')
+                        if blur_arg:
+                            pdf_page_pix = blur_image(pdf_page_pix, output='png', ksize=blur_skew)
                         archive.writestr('page-{pnum}.png'.format(pnum=page_number), pdf_page_pix)
                         l += 1
                 tmp.seek(0)
