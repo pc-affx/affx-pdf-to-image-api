@@ -1,15 +1,16 @@
 FROM python:3.11-slim
 
-# Install system dependencies for all packages
+# Install system dependencies for PDF processing
 RUN apt-get update && apt-get install -y \
     poppler-utils \
-    libfreetype6-dev \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
-    libxrender-dev \
+    libxrender1 \
     libgomp1 \
     libgl1-mesa-glx \
+    libglib2.0-dev \
+    && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
